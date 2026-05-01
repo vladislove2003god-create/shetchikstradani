@@ -27,8 +27,8 @@ margin-bottom:30px;
 }
 
 button{
-width:220px;
-height:220px;
+width:240px;
+height:240px;
 border-radius:50%;
 border:none;
 font-size:24px;
@@ -56,7 +56,7 @@ font-size:35px;
 
 <h1>ПОЧЕМУ СТРАДАЕТ ВОДИТЕЛЬ?</h1>
 
-<button onclick="clicks++; document.getElementById('c').innerText = clicks;">
+<button onclick="addClick()">
 БЕЗ КОМПЕНСАЦИИ
 </button>
 
@@ -67,7 +67,26 @@ font-size:35px;
 </div>
 
 <script>
-let clicks = 0;
+
+// загружаем сохранённое число
+let clicks = localStorage.getItem("clicks");
+
+if(clicks === null){
+  clicks = 0;
+}
+
+document.getElementById("c").innerText = clicks;
+
+// функция клика
+function addClick(){
+  clicks++;
+  
+  document.getElementById("c").innerText = clicks;
+
+  // сохраняем
+  localStorage.setItem("clicks", clicks);
+}
+
 </script>
 
 </body>
