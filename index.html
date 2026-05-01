@@ -1,83 +1,74 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Счетчик кликов</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Счетчик</title>
 
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #111;
-      font-family: Arial, sans-serif;
-      color: white;
-    }
+<style>
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#111;
+font-family:Arial;
+color:white;
+}
 
-    .box {
-      text-align: center;
-    }
+.box{
+text-align:center;
+}
 
-    h1 {
-      margin-bottom: 20px;
-      font-size: 36px;
-    }
+h1{
+font-size:40px;
+margin-bottom:30px;
+}
 
-    p {
-      margin-bottom: 30px;
-      font-size: 20px;
-      color: #ccc;
-    }
+button{
+width:220px;
+height:220px;
+border-radius:50%;
+border:none;
+font-size:24px;
+background:red;
+color:white;
+cursor:pointer;
+transition:0.2s;
+padding:20px;
+}
 
-    button {
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      border: none;
-      font-size: 28px;
-      cursor: pointer;
-      background: #ff3b3b;
-      color: white;
-      transition: 0.2s;
-    }
+button:active{
+transform:scale(0.95);
+}
 
-    button:active {
-      transform: scale(0.95);
-    }
-
-    .count {
-      margin-top: 25px;
-      font-size: 30px;
-    }
-  </style>
+.count{
+margin-top:25px;
+font-size:35px;
+}
+</style>
 </head>
+
 <body>
 
-  <div class="box">
-    <h1>ПОЧЕМУ СТРАДАЕТ ВОДИТЕЛЬ?</h1>
+<div class="box">
 
-    <p>Нажимай на кнопку 👇</p>
+<h1>ПОЧЕМУ СТРАДАЕТ ВОДИТЕЛЬ?</h1>
 
-    <button onclick="addClick()">
-      КЛИК
-    </button>
+<button onclick="clicks++; document.getElementById('c').innerText = clicks;">
+БЕЗ КОМПЕНСАЦИИ
+</button>
 
-    <div class="count">
-      Кликов: <span id="counter">0</span>
-    </div>
-  </div>
+<div class="count">
+Страданий: <span id="c">0</span>
+</div>
 
-  <script>
-    let count = 0;
+</div>
 
-    function addClick() {
-      count++;
-      document.getElementById("counter").innerText = count;
-    }
-  </script>
+<script>
+let clicks = 0;
+</script>
 
 </body>
 </html>
