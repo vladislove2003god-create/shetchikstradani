@@ -26,7 +26,7 @@ font-size:40px;
 margin-bottom:30px;
 }
 
-button{
+.main-btn{
 width:240px;
 height:240px;
 border-radius:50%;
@@ -39,13 +39,29 @@ transition:0.2s;
 padding:20px;
 }
 
-button:active{
+.main-btn:active{
 transform:scale(0.95);
 }
 
 .count{
 margin-top:25px;
 font-size:35px;
+}
+
+.reset-btn{
+margin-top:25px;
+padding:12px 25px;
+font-size:18px;
+border:none;
+border-radius:12px;
+cursor:pointer;
+background:#444;
+color:white;
+transition:0.2s;
+}
+
+.reset-btn:hover{
+transform:scale(1.05);
 }
 </style>
 </head>
@@ -56,7 +72,7 @@ font-size:35px;
 
 <h1>ПОЧЕМУ СТРАДАЕТ ВОДИТЕЛЬ?</h1>
 
-<button onclick="addClick()">
+<button class="main-btn" onclick="addClick()">
 БЕЗ КОМПЕНСАЦИИ
 </button>
 
@@ -64,11 +80,15 @@ font-size:35px;
 Страданий: <span id="c">0</span>
 </div>
 
+<button class="reset-btn" onclick="resetCounter()">
+СБРОСИТЬ
+</button>
+
 </div>
 
 <script>
 
-// загружаем сохранённое число
+// загружаем сохранённые данные
 let clicks = localStorage.getItem("clicks");
 
 if(clicks === null){
@@ -77,13 +97,21 @@ if(clicks === null){
 
 document.getElementById("c").innerText = clicks;
 
-// функция клика
+// добавить клик
 function addClick(){
   clicks++;
-  
+
   document.getElementById("c").innerText = clicks;
 
-  // сохраняем
+  localStorage.setItem("clicks", clicks);
+}
+
+// сброс
+function resetCounter(){
+  clicks = 0;
+
+  document.getElementById("c").innerText = clicks;
+
   localStorage.setItem("clicks", clicks);
 }
 
