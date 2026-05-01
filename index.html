@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Счетчик кликов</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #111;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
+    .box {
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 36px;
+    }
+
+    p {
+      margin-bottom: 30px;
+      font-size: 20px;
+      color: #ccc;
+    }
+
+    button {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+      background: #ff3b3b;
+      color: white;
+      transition: 0.2s;
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+
+    .count {
+      margin-top: 25px;
+      font-size: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h1>ПОЧЕМУ СТРАДАЕТ ВОДИТЕЛЬ?</h1>
+
+    <p>Нажимай на кнопку 👇</p>
+
+    <button onclick="addClick()">
+      КЛИК
+    </button>
+
+    <div class="count">
+      Кликов: <span id="counter">0</span>
+    </div>
+  </div>
+
+  <script>
+    let count = 0;
+
+    function addClick() {
+      count++;
+      document.getElementById("counter").innerText = count;
+    }
+  </script>
+
+</body>
+</html>
